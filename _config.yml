@@ -1,2 +1,3 @@
-theme: jekyll-theme-minimal
-title: [Under construction]
+title: My Site Title
+description: Welcome to my Jekyll-powered site!
+theme: jekyll-theme-cayman

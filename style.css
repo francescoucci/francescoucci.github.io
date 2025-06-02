@@ -1,5 +1,5 @@
 body {
-      font-family: 'Roboto', sans-serif;
+      font-family: 'Raleway', sans-serif;
       margin: 0;
       padding: 0;
       background-color: #f9f9f9;
@@ -9,7 +9,7 @@ body {
       text-align: left;
     }
     h1 {
-      color: #89b557;
+      color: #00524c;
       margin: 0;
       font-size: 2.5em;
     }
@@ -19,7 +19,7 @@ body {
       font-weight: normal;
     }
     h3 {
-      color:  #89b557;
+      color:  #00524c;
     }
     .content {
       padding: 20px 40px;
@@ -33,19 +33,18 @@ body {
     .panel {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: left;
       justify-content: center;
       flex: 1;
-    align-items: center;
       background-color:  white;
       padding: 10px 40px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .panel h3 {
-      color: #89b557;
+      color: #00524c;
       font-size: 22pt;
-    align-items: center;
+    align-items: left;
     }
       .profile-header {
     display: flex;
@@ -56,10 +55,21 @@ body {
         padding-left: 40px;
         box-sizing: border-box;
   }
+
+   .profile-header-other {
+    display: flex;
+        align-items: center;
+        justify-content: space-between; /* Spread items to edges */
+        gap: 30px;
+        width: 100%;
+        padding-left: 40px;
+        box-sizing: border-box;
+        margin-bottom: -30px; /* Adjust as needed */
+  }
     .profile-header h1 {
       margin: 0;
       font-size: 30pt;
-      color: #89b557;
+      color: #00524c;
     }
     .profile-header h2 {
       margin: 0;
@@ -90,24 +100,26 @@ body {
       transition: box-shadow 0.2s;
     }
     .panel-link .panel:hover {
+      background-color: #00524d57;
       box-shadow: 0 6px 16px rgba(137, 181, 87, 0.409);
     }
     .publication-list {
       padding: 20px 40px;
       margin: 40px;
+       /* margin-top: -10px; */
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .publication-list  h1{
-      color: #89b557;
+      color: #00524c;
       font-size: 30pt;
       padding: 20px 10px;
       margin-bottom: 10px;
     }
       .publication-list  h2{
       font-weight: bold;
-      color: #89b557;
+      color: #00524c;
       font-size: 18pt;
       /* padding: 0px 10px; */
       margin-bottom: 10px;
@@ -134,7 +146,7 @@ body {
       color: #666;
     }
     .publication-list .arxiv {
-      color: #89b557;
+      color: #00524c;
       text-decoration: none;
       margin-left: 2px;
     }
@@ -142,7 +154,7 @@ body {
       color: #5a7c36;
     }
     .publication-list strong {
-      color: #89b557;
+      color: #00524c;
     }
     .publication-list .pubs-note {
       padding-left: 10px; /* match .publication-list ul { padding: 0px 60px; } */
@@ -153,7 +165,7 @@ body {
     }
     .back-arrow {
       font-size: 2.2em;
-      color: #89b557;
+      color: #00524c;
       text-decoration: none;
       font-weight: bold;
       vertical-align: middle;
@@ -171,7 +183,7 @@ body {
 }
 
 .github-repos-section h3 {
-  color:  #89b557;
+  color:  #00524c;
   margin-bottom: 18px;
 }
 
@@ -227,15 +239,14 @@ body {
 .cv-section {
   padding: 20px 60px;
   margin: 00px 0 0 0;
-  font-size: 14pt;
 }
 .cv-section strong{
-  /* color: #89b557; */
+  color: #00524c;
   font-weight: bold;
   font-size: 20pt;
 }
 .cv-section h2 {
-  color: #89b557;
+  color: #00524c;
   font-size: 2em;
   margin-bottom: 16px;
   font-weight: bold;
@@ -255,7 +266,7 @@ body {
   margin: 0;
 }
 .cv-date {
-  color: #89b557;
+  color: #00524c;
   display: inline-block;
   min-width: 110px;
   font-weight: bold;
@@ -284,7 +295,7 @@ body {
 }
 
 .contact-panel h3 {
-  color: #89b557;
+  color: #00524c;
   margin-top: 0;
   margin-bottom: 10px;
   font-size: 18pt;
@@ -309,7 +320,7 @@ body {
 
 
 .contact-panel a[href^="mailto:"] {
-  color: #89b557;
+  color: #00524c;
   font-weight: bold;
 }
 
@@ -343,7 +354,7 @@ body {
 }
 .skill-level {
   height: 100%;
-  background: linear-gradient(90deg, #89b557 60%, #b6d97e 100%);
+  background: linear-gradient(90deg, #00524c 60%, #b6d97e 100%);
   border-radius: 8px 0 0 8px;
   transition: width 0.6s;
 }
@@ -373,4 +384,9 @@ body {
     padding-left: 0;
     margin-top: 24px;
   }
+}
+
+.pubs-bg {
+  background: #00524d57 !important;
+  color: #fff;
 }

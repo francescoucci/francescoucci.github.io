@@ -227,6 +227,12 @@ body {
 .cv-section {
   padding: 20px 60px;
   margin: 00px 0 0 0;
+  font-size: 14pt;
+}
+.cv-section strong{
+  /* color: #89b557; */
+  font-weight: bold;
+  font-size: 20pt;
 }
 .cv-section h2 {
   color: #89b557;
@@ -309,4 +315,62 @@ body {
 
 .contact-panel a[href^="mailto:"]:hover {
   color: #5a7c36;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.skills-list li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.skill-name {
+  min-width: 100px;
+  font-weight: 500;
+  color: #333;
+}
+.skill-bar {
+  flex: 1;
+  background: #e5e5e5;
+  border-radius: 8px;
+  height: 14px;
+  overflow: hidden;
+  margin-left: 8px;
+}
+.skill-level {
+  height: 100%;
+  background: linear-gradient(90deg, #89b557 60%, #b6d97e 100%);
+  border-radius: 8px 0 0 8px;
+  transition: width 0.6s;
+}
+.cv-flex {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.cv-left {
+  flex: 2 1 300px;
+  min-width: 250px;
+}
+.cv-right {
+  flex: 1 1 220px;
+  min-width: 180px;
+  padding-left: 20px;
+  border-left: 2px solid #e5e5e5;
+}
+@media (max-width: 800px) {
+  .cv-flex {
+    flex-direction: column;
+    gap: 0;
+  }
+  .cv-right {
+    border-left: none;
+    padding-left: 0;
+    margin-top: 24px;
+  }
 }

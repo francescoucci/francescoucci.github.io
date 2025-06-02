@@ -77,10 +77,6 @@ body {
     .panel-link .panel:hover {
       box-shadow: 0 4px 16px rgba(137, 181, 87, 0.15);
     }
-    .publication-list{
-      padding: 40px 60px;
-        gap:30px;
-    }
     .publication-list  h1{
       color: #89b557;
       font-size: 1.5em;

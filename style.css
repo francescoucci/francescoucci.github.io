@@ -75,10 +75,27 @@ body {
       transition: box-shadow 0.2s;
     }
     .panel-link .panel:hover {
-      box-shadow: 0 4px 16px rgba(137, 181, 87, 0.15);
+      box-shadow: 0 6px 16px rgba(137, 181, 87, 0.409);
+    }
+    .publication-list{
+      padding:50px 40px;
+      margin: 30px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
     .publication-list  h1{
       color: #89b557;
-      font-size: 1.5em;
+      font-size: 30pt;
+      padding: 0px 40px;
       margin-bottom: 10px;
     }
+    .publication-list ul {
+      list-style: none;
+      padding: 0px 40px;
+      margin-bottom: 10px;
+    }
+    .publication-list li {
+      font-size: 14pt;
+    }
+    .publication-list

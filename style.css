@@ -28,23 +28,37 @@ body {
       display: flex;
       justify-content: space-between;
       padding: 20px 40px;
-      gap: 20px;
+      gap: 50px;
     }
     .panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       flex: 1;
-      background-color: white;
-      padding: 5px 20px;
+    align-items: center;
+      background-color:  white;
+      padding: 10px 40px;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
+    .panel h3 {
+      color: #89b557;
+      font-size: 22pt;
+    align-items: center;
+    }
       .profile-header {
     display: flex;
-    align-items: center;
-    gap: 30px;
+        align-items: center;
+        justify-content: space-between; /* Spread items to edges */
+        gap: 30px;
+        width: 100%;
+        padding-left: 40px;
+        box-sizing: border-box;
   }
     .profile-header h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 30pt;
       color: #89b557;
     }
     .profile-header h2 {
@@ -54,12 +68,13 @@ body {
     }
     .affiliations {
       margin-top: 6px;
+      font-size: 14pt;
       color: #666; /* unified color */
     }
     .affiliations em {
       display: block;
       color: inherit;
-      font-size: 0.95em;
+      font-size: 14pt;
       margin-bottom: 0;
     }
 
@@ -124,7 +139,7 @@ body {
       margin-left: 2px;
     }
     .publication-list .arxiv:hover {
-      text-decoration: underline;
+      color: #5a7c36;
     }
     .publication-list strong {
       color: #89b557;
@@ -147,3 +162,151 @@ body {
     .back-arrow:hover {
       color: #5a7c36;
     }
+    .github-repos-section {
+  margin: 40px;
+  padding: 20px 40px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+
+.github-repos-section h3 {
+  color:  #89b557;
+  margin-bottom: 18px;
+}
+
+.github-repos-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.github-repo {
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.github-repo:last-child {
+  border-bottom: none;
+}
+
+.repo-name {
+  font-weight: bold;
+  color: #0366d6;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.repo-name:hover {
+  text-decoration: underline;
+}
+
+.repo-desc {
+  color: #586069;
+  margin-right: 10px;
+  font-size: 0.95em;
+}
+
+.repo-lang {
+  background: #f1f8ff;
+  color: #0366d6;
+  border-radius: 2em;
+  padding: 2px 10px;
+  font-size: 0.85em;
+  margin-right: 10px;
+}
+
+.repo-stars {
+  color: #6a737d;
+  font-size: 0.9em;
+}
+.cv-section {
+  padding: 20px 60px;
+  margin: 00px 0 0 0;
+}
+.cv-section h2 {
+  color: #89b557;
+  font-size: 2em;
+  margin-bottom: 16px;
+  font-weight: bold;
+}
+.cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 10px 0;
+}
+.cv-list > li {
+  margin-bottom: 16px;
+  font-size: 1.08em;
+}
+.cv-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cv-date {
+  color: #89b557;
+  display: inline-block;
+  min-width: 110px;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+}
+.cv-pos {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 10px;
+}
+.contact-panel {
+  /* Remove panel styles */
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  min-width: 350px;
+  max-width: 400px;
+  font-size: 14pt;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: center;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.contact-panel h3 {
+  color: #89b557;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18pt;
+}
+
+.contact-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-panel li {
+  margin-bottom: 8px;
+  font-size: 0.98em;
+  color: #666;
+}
+
+.contact-panel a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+
+.contact-panel a[href^="mailto:"] {
+  color: #89b557;
+  font-weight: bold;
+}
+
+.contact-panel a[href^="mailto:"]:hover {
+  color: #5a7c36;
+}

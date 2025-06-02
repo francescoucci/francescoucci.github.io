@@ -13,29 +13,124 @@
     <div class="profile-header">
       <img src="img/FPUpic.jpg" alt="Francesco P. Ucci" style="width:200px; border-radius: 100px;">
       <div>
-        <h1> Francesco P. Ucci</h1>
+        <h1>Francesco P. Ucci</h1>
         <h2>PhD Student in Theoretical Particle Physics</h2>
-          <div class="affiliations">
-            Dipartimento di Fisica "Alessandro Volta", Università di Pavia<br>
-            INFN Sezione di Pavia<br>
-            <em>Via Bassi 6, 27100 Pavia, Italy</em>
-          </div>
+        <div class="affiliations">
+          Dipartimento di Fisica "Alessandro Volta", Università di Pavia<br>
+          INFN Sezione di Pavia<br>
+          <em>Via Bassi 6, 27100 Pavia, Italy</em>
+        </div>
+      </div>
+      <div class="contact-panel">
+        <h3>Contacts</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:francesco.ucci@pv.infn.it">francesco.ucci@pv.infn.it</a></li>
+          <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/francesco-ucci/" target="_blank">francesco-ucci</a></li>
+        </ul>
       </div>
     </div>
 
   </header>
 
   <div class="panels">
+  <a href="research.html" class="panel-link">
     <div class="panel">
       <h3>Research</h3>
-      <p>Explore my work on quantum field theory and collider physics.</p>
+      <!-- <p>Explore my research interests.</p> -->
     </div>
+  </a>
+
     <a href="pubs.html" class="panel-link">
       <div class="panel">
         <h3>Publications</h3>
-        <p>Find my latest publications and preprints on arXiv and journals.</p>
+        <!-- <p>A list of selected publications.</p> -->
       </div>
     </a>
+
+    <a href="talks.html" class="panel-link">
+    <div class="panel">
+      <h3>Talks</h3>
+      <!-- <p>Explore the talks I gave.</p> -->
+    </div>
+  </a>
+
+   <a href="talks.html" class="panel-link">
+    <div class="panel">
+      <h3>Posters</h3>
+      <!-- <p>Explore the talks I gave.</p> -->
+    </div>
+  </a>
+  </div> <!-- end of .panels -->
+
+  <div class="cv-section">
+  <h2>Curriculum Vitae</h2>
+  <ul class="cv-list">
+    <li>
+      <strong>Education</strong>
+      <ul>
+        <li>
+          <span class="cv-date">2022–present</span>
+          <span class="cv-pos">PhD Student in Theoretical Particle Physics, Università di Pavia</span>
+        </li>
+        <li>
+          <span class="cv-date">2020</span>
+          <span class="cv-pos">MSc in Physics, Università di Pavia</span>
+        </li>
+        <li>
+          <span class="cv-date">2018</span>
+          <span class="cv-pos">BSc in Physics, Università di Pavia</span>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Experience</strong>
+      <ul>
+        <li>
+          <span class="cv-date">2022–present</span>
+          <span class="cv-pos">PhD Student, Università di Pavia</span>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <strong>Skills</strong><br>
+      C++, Python, Mathematica, LaTeX, Git, Linux
+    </li>
+    <li>
+      <strong>Languages</strong><br>
+      Italian (native), English (fluent)
+    </li>
+  </ul>
+  <p>
+    <a href="CV.pdf" target="_blank" style="color: #0366d6; text-decoration: underline;">Download full CV (PDF)</a>
+  </p>
+</div>
+
+  <div class="github-repos-section">
+    <h3>GitHub Repositories</h3>
+    <ul id="github-repos-list" class="github-repos-list"></ul>
   </div>
+
+  <script>
+  fetch('https://api.github.com/users/francescoucci/repos?sort=updated')
+    .then(response => response.json())
+    .then(repos => {
+      const list = document.getElementById('github-repos-list');
+      if (!Array.isArray(repos)) {
+        list.innerHTML = '<li>Could not load repositories.</li>';
+        return;
+      }
+      list.innerHTML = repos.map(repo => `
+        <li class="github-repo">
+          <a href="${repo.html_url}" target="_blank" class="repo-name">${repo.name}</a>
+          <span class="repo-desc">${repo.description ? repo.description : ''}</span>
+          <span class="repo-lang">${repo.language ? repo.language : ''}</span>
+          <span class="repo-stars">★ ${repo.stargazers_count}</span>
+        </li>
+      `).join('');
+    })
+    .catch(() => {
+      document.getElementById('github-repos-list').innerHTML = '<li>Could not load repositories.</li>';
+    });
+  </script>
 </body>
 </html>

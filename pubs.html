@@ -20,21 +20,64 @@
   </header>
 
   <main class="publication-list">
-    <h1>Publications</h1>
-    <ul>
-      <li>
-        <strong>The anomalous magnetic moment of the muon in the Standard Model: an update</strong><br>
-        <div class="publication-list-authors">F. P. Ucci, et al.</div>
-        <a href="https://arxiv.org/pdf/2505.21476" target="_blank">arXiv:2505.21476</a>
-      </li>
-    </ul>
-    <p>
-      See also my full list on 
-      <a href="https://inspirehep.net/authors/2826909" target="_blank">INSPIRE-HEP</a>.
+    <h1>(Selected) Publications</h1>
+    <ul id="auto-publication-list"></ul>
+    <p class="pubs-note">
+      <em>See also my full list of publications on 
+      <a href="https://inspirehep.net/authors/2826909" target="_blank"><strong>INSPIRE HEP</strong></a>.
+ </em>
     </p>
     <p>
-      <a href="index.html">&larr; Back to Home</a>
+      <a class="back-arrow" href="index.html">&#8592;</a>
     </p>
   </main>
+  <script>
+function parseBibTeXEntries(bibtex) {
+  // Split entries by '@' and filter out empty strings
+  const entries = bibtex.split(/@/g).filter(e => e.trim()).map(e => '@' + e);
+  return entries.map(entryText => {
+    const entry = {};
+    // Extract BibTeX key
+    const keyMatch = entryText.match(/^@.*?{([^,]+),/);
+    entry.bibkey = keyMatch ? keyMatch[1] : '';
+    entryText.replace(/(\w+)\s*=\s*["{]([^"}]+)["}]/g, (_, key, value) => {
+      entry[key.trim()] = value.trim();
+    });
+    return entry;
+  });
+}
+
+fetch('publications.bib')
+  .then(response => {
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.text();
+  })
+  .then(bibtex => {
+    const pubs = parseBibTeXEntries(bibtex);
+    const html = pubs.map(pub => {
+      const authors = pub.author ? pub.author.replace('and others', 'et al.') : '';
+      const title = pub.title ? pub.title.replace(/[{}]/g, '') : '';
+      const year = pub.year || '';
+      const arxiv = pub.eprint
+        ? `<a class="arxiv" href="https://arxiv.org/abs/${pub.eprint}" target="_blank">arXiv:${pub.eprint}</a>`
+        : '';
+      const journal = `<span class="journal"><em>arXiv preprint, ${year}</em></span>`;
+  
+      return `
+        <li>
+          <strong>
+              ${title}
+          </strong><br>
+          <span class="authors">${authors}</span>, ${journal}, ${arxiv}
+        </li>
+      `;
+    }).join('');
+    document.getElementById('auto-publication-list').innerHTML = html;
+  })
+  .catch((err) => {
+    document.getElementById('auto-publication-list').innerHTML = '<li>Could not load publications.</li>';
+    console.error(err);
+  });
+</script>
 </body>
 </html>

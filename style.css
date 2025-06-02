@@ -77,9 +77,9 @@ body {
     .panel-link .panel:hover {
       box-shadow: 0 6px 16px rgba(137, 181, 87, 0.409);
     }
-    .publication-list{
-      padding:50px 40px;
-      margin: 30px;
+    .publication-list {
+      padding: 20px 40px;
+      margin: 40px;
       background-color: white;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -87,15 +87,63 @@ body {
     .publication-list  h1{
       color: #89b557;
       font-size: 30pt;
-      padding: 0px 40px;
+      padding: 20px 10px;
+      margin-bottom: 10px;
+    }
+      .publication-list  h2{
+      font-weight: bold;
+      color: #89b557;
+      font-size: 18pt;
+      /* padding: 0px 10px; */
       margin-bottom: 10px;
     }
     .publication-list ul {
       list-style: none;
-      padding: 0px 40px;
+      padding: 0px 10px;
       margin-bottom: 10px;
     }
     .publication-list li {
       font-size: 14pt;
+      margin-bottom: 18px;
     }
-    .publication-list
+    .publication-list .authors,
+    .publication-list .journal,
+    .publication-list .arxiv {
+      display: inline;
+      font-size: 0.95em;
+      font-style: normal;
+      color: #444;
+    }
+    .publication-list .journal em {
+      font-style: italic;
+      color: #666;
+    }
+    .publication-list .arxiv {
+      color: #89b557;
+      text-decoration: none;
+      margin-left: 2px;
+    }
+    .publication-list .arxiv:hover {
+      text-decoration: underline;
+    }
+    .publication-list strong {
+      color: #89b557;
+    }
+    .publication-list .pubs-note {
+      padding-left: 10px; /* match .publication-list ul { padding: 0px 60px; } */
+      padding-top: 20px;
+      margin-top: 10px;
+      margin-bottom: 0px;
+      color: #666;
+    }
+    .back-arrow {
+      font-size: 2.2em;
+      color: #89b557;
+      text-decoration: none;
+      font-weight: bold;
+      vertical-align: middle;
+      transition: color 0.2s;
+    }
+    .back-arrow:hover {
+      color: #5a7c36;
+    }

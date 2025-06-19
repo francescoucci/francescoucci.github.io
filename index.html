@@ -3,20 +3,78 @@
 <head>
   <meta charset="UTF-8">
   <title>Francesco P. Ucci</title>
-  <style>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+ <style>
     body {
-      font-family: sans-serif;
-      text-align: center;
-      padding-top: 50px;
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
+    header {
+      padding: 50px 40px 10px;
+      text-align: left;
     }
     h1 {
-      color: #007acc;
+      font-family: 'Noto Serif';
+      color: #89b557;
+      margin: 0;
+      font-size: 2.5em;
+    }
+    h2 {
+      margin-top: 10px;
+      color: #333;
+      font-weight: normal;
+    }
+    h3 {
+      color:  #89b557;
+    }
+    .content {
+      padding: 20px 40px;
+    }
+    .panels {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 40px;
+      gap: 20px;
+    }
+    .panel {
+      flex: 1;
+      background-color: white;
+      padding: 5px 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
   </style>
 </head>
 <body>
-  <h1>Francesco P. Ucci</h1>
-  <h2> PhD Student in Theoretical Particle Physics </h2>
-  <p>Welcome to my website hosted on GitHub Pages.</p>
+  <header>
+    <div>
+      <img src="img/FPUpic.jpg" alt="Francesco P. Ucci" style="width:200px; border-radius: 100px;">
+      <h1>Francesco P. Ucci</h1>
+      <h2>PhD Student in Theoretical Particle Physics</h2>
+    </div>
+   
+  </header>
+
+  <div class="content">
+    <p>Welcome to my website hosted on GitHub Pages.</p>
+  </div>
+  <div class="panels">
+    <div class="panel">
+      <h3>Research</h3>
+      <p>Explore my work on quantum field theorysananwnd and collider physics.</p>
+    </div>
+    <div class="panel">
+      <h3>Publications</h3>
+      <p>Find my latest publications and preprints on arXiv and journals.</p>
+    </div>
+    <div class="panel">
+      <h3>Contacts</h3>
+      <p>Get in touch with me for collaborations or inquiries.</p>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Publications – Francesco P. Ucci</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="pubs-bg">
+  <header>
+    <div class="profile-header-other">
+      <div>
+        <h1>Francesco P. Ucci</h1>
+        <h2>PhD Student in Theoretical Particle Physics</h2>
+      </div>
+    </div>
+  </header>
+
+  <main class="publication-list">
+    <h1>(Selected) Publications</h1>
+    <ul id="auto-publication-list"></ul>
+    <p class="pubs-note">
+      <em>See also my full list of publications on 
+      <a href="https://inspirehep.net/authors/2826909" target="_blank"><strong>INSPIRE HEP</strong></a>.
+ </em>
+    </p>
+    <p>
+      <a class="back-arrow" href="index.html">&#8592;</a>
+    </p>
+  </main>
+  <script>
+function parseBibTeXEntries(bibtex) {
+  // Split entries by '@' and filter out empty strings
+  const entries = bibtex.split(/@/g).filter(e => e.trim()).map(e => '@' + e);
+  return entries.map(entryText => {
+    const entry = {};
+    // Extract BibTeX key
+    const keyMatch = entryText.match(/^@.*?{([^,]+),/);
+    entry.bibkey = keyMatch ? keyMatch[1] : '';
+    entryText.replace(/(\w+)\s*=\s*["{]([^"}]+)["}]/g, (_, key, value) => {
+      entry[key.trim()] = value.trim();
+    });
+    return entry;
+  });
+}
+
+fetch('publications.bib')
+  .then(response => {
+    if (!response.ok) throw new Error('Network response was not ok');
+    return response.text();
+  })
+  .then(bibtex => {
+    const pubs = parseBibTeXEntries(bibtex);
+    const html = pubs.map(pub => {
+      const authors = pub.author ? pub.author.replace('and others', 'et al.') : '';
+      const title = pub.title ? pub.title.replace(/[{}]/g, '') : '';
+      const year = pub.year || '';
+      const arxiv = pub.eprint
+        ? `<a class="arxiv" href="https://arxiv.org/abs/${pub.eprint}" target="_blank">arXiv:${pub.eprint}</a>`
+        : '';
+      const journal = `<span class="journal"><em>arXiv preprint, ${year}</em></span>`;
+  
+      return `
+        <li>
+          <strong>
+              ${title}
+          </strong><br>
+          <span class="authors">${authors}</span><br>
+          ${journal}, ${arxiv}
+        </li>
+      `;
+    }).join('');
+    document.getElementById('auto-publication-list').innerHTML = html;
+  })
+  .catch((err) => {
+    document.getElementById('auto-publication-list').innerHTML = '<li>Could not load publications.</li>';
+    console.error(err);
+  });
+</script>
+</body>
+</html>
